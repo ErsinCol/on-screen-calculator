@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
 }
@@ -7,31 +11,31 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  background-color: azure;
 }
 
 .calculator {
-  width: 480px;
-  height: 520px;
+  display: grid;
+  grid-template-columns: repeat(4, 120px);
+  grid-template-rows: 100px repeat(5, 80px);
+  gap: 1px;
+  background-color: #505050;
   border: 1px solid black;
   border-radius: 8px;
   overflow: hidden;
 }
 
 .display {
-  height: 120px;
-  line-height: 88px;
+  grid-column: 1/-1;
+  line-height: 68px;
   text-align: right;
   font-size: 48px;
   background-color: #505050;
   color: white;
   padding: 16px;
-  box-sizing: border-box;
 }
 
 button {
-  float: left;
-  width: 120px;
-  height: 80px;
   line-height: 80px;
   text-align: center;
   padding: 0;
@@ -43,7 +47,7 @@ button {
 }
 
 .zero {
-  width: 240px;
+  grid-column: span 2;
 }
 
 .operator {
@@ -59,4 +63,22 @@ button {
 .sign,
 .percent {
   background-color: #616161;
+}
+
+@media only screen and (max-width: 768px) {
+  .calculator {
+    grid-template-columns: repeat(4, 80px);
+    grid-template-rows: 70px repeat(5, 50px);
+  }
+
+  .display {
+    padding: 4px 8px;
+    line-height: 62px;
+    font-size: 30px;
+  }
+
+  button {
+    line-height: 50px;
+    font-size: 18px;
+  }
 }
