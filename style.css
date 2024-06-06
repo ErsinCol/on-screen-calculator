@@ -4,6 +4,7 @@
 
 body {
   margin: 0;
+  font-family: "Roboto", sans-serif;
 }
 
 .container {
@@ -11,7 +12,7 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: azure;
+  background: linear-gradient(135deg, #74ebd5, #acb6e5);
 }
 
 .calculator {
@@ -23,6 +24,12 @@ body {
   border: 1px solid black;
   border-radius: 8px;
   overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.calculator:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .display {
@@ -44,13 +51,19 @@ button {
   border: 1px solid #505050;
   color: white;
   cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+button:active {
+  transform: scale(0.95);
 }
 
 .zero {
   grid-column: span 2;
 }
 
-.operator {
+.operator,
+#equal {
   background-color: #f19f3b;
 }
 
@@ -60,7 +73,7 @@ button {
 }
 
 .clear,
-.sign,
+.backspace,
 .percent {
   background-color: #616161;
 }
